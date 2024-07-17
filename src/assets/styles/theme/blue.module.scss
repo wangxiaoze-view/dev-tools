@@ -1,0 +1,25 @@
+$sim-color-primary: #409eff;
+$sim-color-success: #13ce66;
+$sim-color-warning: #ffba00;
+$sim-color-danger: #ff4d4f;
+$sim-color-error: #ff4d4f;
+
+$sim-menu-background: #f6f8fc;
+
+:export {
+  // 系统颜色
+  sim-color-grey: $sim-color-grey;
+  sim-color-black: $sim-color-black;
+  sim-color-primary: $sim-color-primary;
+  sim-color-primary-light-1: mix($sim-color-white, $sim-color-primary, 10%);
+  sim-color-primary-light-2: mix($sim-color-white, $sim-color-primary, 20%);
+  sim-color-primary-light-3: mix($sim-color-white, $sim-color-primary, 30%);
+  sim-color-primary-light-4: mix($sim-color-white, $sim-color-primary, 40%);
+  sim-color-primary-light-5: mix($sim-color-white, $sim-color-primary, 50%);
+  sim-color-primary-light-6: mix($sim-color-white, $sim-color-primary, 60%);
+  sim-color-primary-light-7: mix($sim-color-white, $sim-color-primary, 70%);
+  sim-color-primary-light-8: mix($sim-color-white, $sim-color-primary, 80%);
+  sim-color-primary-light-9: mix($sim-color-white, $sim-color-primary, 90%);
+  sim-color-primary-dark-2: mix($sim-color-white, $sim-color-primary, 3%);
+  sim-left-menu-width: $sim-left-menu-width;
+}

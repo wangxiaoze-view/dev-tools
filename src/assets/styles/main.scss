@@ -1,0 +1,219 @@
+@import "./base.scss";
+
+body {
+	overflow: hidden;
+	background-size: cover;
+	user-select: none;
+}
+
+/* 自定义顶部tab */
+.custom-titlebar {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	/* 避免被收缩 */
+	flex-shrink: 0;
+	/* 高度与 main.js 中 titleBarOverlay.height 一致  */
+	height: 35px;
+	width: 100%;
+	/* 标题栏始终在最顶层（避免后续被 Modal 之类的覆盖） */
+	z-index: 9999;
+	background-color: transparent;
+	color: white;
+	padding-left: 12px;
+	font-size: 14px;
+	/* 避免选中窗口标题 */
+	user-select: none;
+	/* 设置该属性表明这是可拖拽区域，用来移动窗口 */
+	-webkit-app-region: drag;
+
+	.handler-btn {
+		-webkit-app-region: none;
+		display: flex;
+		align-items: center;
+
+		&--icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 14px;
+			height: 14px;
+			border-radius: 50px;
+			color: #333;
+			font-size: 12px;
+			cursor: pointer;
+
+			&.close-icon {
+				margin-right: 10px;
+				background-color: #fe5f57;
+				border: 1px solid #e14138;
+			}
+
+			&.min-icon {
+				background-color: #febc2e;
+				border: 1px solid #e09d1f;
+			}
+
+			.icon-font {
+				opacity: 0;
+				transition: opacity cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+			}
+		}
+		&:hover .icon-font {
+			opacity: 1;
+		}
+	}
+}
+
+#app {
+	height: 100vh;
+	font-size: 14px;
+}
+
+/* 菜单hover */
+@mixin navHover() {
+	color: var(--color-text);
+	font-weight: 600;
+}
+
+/* 图标尺寸 */
+@mixin iconSize() {
+	font-size: 16px;
+	margin-right: 6px;
+	cursor: pointer;
+}
+
+/* 菜单内容布局 */
+.app-container {
+	height: 100%;
+	display: flex;
+
+	&--left {
+		padding-top: 0;
+		width: var(--nav-max-w);
+		background-color: var(--nav-background);
+		position: relative;
+		transition: width 0.2s ease-in-out;
+		.menu-item {
+			padding: 10px 14px;
+			color: var(--color-text-light);
+			transition: all 0.3s ease-in-out;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			&:hover {
+				@include navHover();
+			}
+
+			&.active {
+				@include navHover();
+				background-color: var(--nav-active-background);
+				border-radius: 4px;
+			}
+
+			.tab-title {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				transition: all 0.2s cubic-bezier(0.5, -0.1, 1, 0.4);
+			}
+			.tab-icon {
+				@include iconSize();
+			}
+		}
+
+		.bottom-handler {
+			position: absolute;
+			bottom: 20px;
+			left: 14px;
+			right: 14px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.handler-menu {
+				padding: 6px 10px;
+				border-radius: 2px;
+				cursor: pointer;
+				transition: all 0.5s ease-out;
+				color: #888;
+				display: flex;
+				align-items: center;
+
+				&:hover {
+					background-color: var(--nav-active-background);
+				}
+
+				.shrink-icon {
+					@include iconSize();
+				}
+				.shrink-title {
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+			}
+
+			.set-icon {
+				@include iconSize();
+				margin-right: 0;
+				color: #888;
+				padding: 6px 10px;
+				border-radius: 2px;
+				&:hover,
+				&.set-active {
+					background-color: var(--nav-active-background);
+				}
+			}
+		}
+	}
+	&--right {
+		background-color: var(--color-background);
+		flex: 1;
+		.pad-container {
+			padding: var(--base-header-top);
+		}
+	}
+
+	&.shrink-app--container {
+		.app-container--left {
+			width: var(--nav-min-w);
+			.menu-item {
+				flex-direction: column;
+
+				.tab-icon {
+					margin-right: 0;
+				}
+
+				.tab-title {
+					font-size: 12px;
+				}
+			}
+
+			.bottom-handler {
+				flex-direction: column;
+
+				.handler-menu {
+					margin-bottom: 6px;
+					.shrink-icon {
+						margin-right: 0;
+					}
+
+					.shrink-title {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+.drawer-header-0 .el-drawer__header {
+	margin-bottom: 0 !important;
+}
+
+a {
+	color: var(--el-color-primary);
+	text-decoration: none;
+	display: block;
+}

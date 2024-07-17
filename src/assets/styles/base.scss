@@ -1,0 +1,50 @@
+:root {
+	/* 菜单最大宽度以及内容区域最大宽度 */
+	--nav-max-w: 200px;
+	--main-max-w: calc(100% - var(--nav-max-w));
+
+	/* 菜单最小宽度以及内容区域最小宽度 */
+	--nav-min-w: 80px;
+	--main-min-w: calc(100% - var(--nav-min-w));
+
+	/* 距离顶部的距离 */
+	--base-header-top: 20px;
+
+	/* 菜单的背景色 */
+	--nav-background: #ebebeb;
+	/* 菜单选中背景色 */
+	--nav-active-background: #d3d3d3;
+
+	/* 字体颜色 */
+	--color-text: #333;
+	/* 字体灰色 */
+	--color-text-light: #666;
+
+	/* 内容区域背景色 */
+	--color-background: #fff;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	font-weight: normal;
+}
+
+ul {
+	list-style: none;
+}
+
+body {
+	min-height: 100vh;
+	color: var(--color-text);
+	background: var(--color-background);
+	line-height: 1.6;
+	font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

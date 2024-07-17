@@ -1,0 +1,59 @@
+// 基础颜色
+$sim-color-white: #ffffff;
+$sim-color-black: #000000;
+$sim-color-primary: #8b77ea;
+$sim-color-success: #13ce66;
+$sim-color-warning: #ffba00;
+$sim-color-danger: #ff6463;
+$sim-color-error: #ff6463;
+$sim-color-grey: rgba(0, 0, 0, 0.65);
+$sim-color-background: #f0f2f5;
+
+$sim-color-text-primary: #303133;
+$sim-color-text-regular: #606266;
+$sim-color-text-secondary: #909399;
+$sim-color-text-placeholder: #c0c4cc;
+$sim-border-color-base: #dcdfe6;
+$sim-border-color-light: #e4e7ed;
+$sim-border-color-lighter: #ebeef5;
+$sim-border-color-extra-light: #f2f6fc;
+$sim-background-color-base: #f5f7fa;
+
+// 菜单颜色
+// zIndex 默认层级
+$sim-z-index: 1000;
+// 菜单背景
+$sim-menu-background: #282c34;
+// 菜单文字颜色
+$sim-menu-color: #ffffff;
+// 菜单选中的原色
+$sim-menu-active-color: #8b77ea;
+
+// logo 的高度
+$sim-logo-height: 60px;
+// 左侧导航未折叠的宽度
+$sim-left-menu-width: 220px;
+// 右侧内容区域未折叠的宽度
+$sim-right-content-width: calc(100% - #{$sim-left-menu-width});
+// 左侧导航已折叠的宽度
+$sim-left-menu-min-width: 64px;
+// 右侧内容区域已折叠的宽度
+$sim-right-content-min-width: calc(100% - #{$sim-left-menu-min-width});
+//默认动画
+$sim-transition:
+  all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+  border 0s,
+  color 0.2s,
+  font-size 0s;
+
+// 字体颜色
+$sim-gray-purple-color: #757d9d;
+
+:export {
+  // 菜单的文字颜色
+  menu-color: $sim-menu-color;
+  // 菜单选中的颜色
+  menu-active-color: $sim-menu-active-color;
+  // 菜单的背景颜色
+  menu-background: $sim-menu-background;
+}
