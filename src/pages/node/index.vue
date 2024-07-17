@@ -4,7 +4,6 @@ import { useNodeStore } from "@/stores/modules/node";
 import { storeToRefs } from "pinia";
 import isInstall from "./components/isInstall.vue";
 import notInstall from "./components/notInstall.vue";
-import { ElMessage } from "element-plus";
 
 defineOptions({
 	name: "NodePage",
